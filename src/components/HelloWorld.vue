@@ -8,7 +8,7 @@
 export default {
   data () {
     return {
-      msg: '这是子页面'
+      msg:'这是子页面'
     }
   }
 }
