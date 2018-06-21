@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import TableList from '@/components/TableList'
+import ShareHolderList from '@/components/shareHolder/ShareHolderList'
+import AddShareHolder from '@/components/shareHolder/AddShareHolder'
+import CompanyInfo from '@/components/CompanyInfo'
 
 Vue.use(Router)
 
@@ -9,13 +10,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'ShareHolderList',
+      component: ShareHolderList
     },
     {
-      path: '/tablelist',
-      name: 'TableList',
-      component: TableList
+      path: '/addshareholder',
+      name: 'AddShareHolder',
+      component: AddShareHolder
+    },
+    {
+      path: '/companyinfo',
+      name: 'CompanyInfo',
+      component: CompanyInfo
     }
   ]
 })

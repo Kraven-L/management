@@ -10,6 +10,11 @@ Vue.use(ElementUI)
 //样式文件需要单独引入
 import 'element-ui/lib/theme-chalk/index.css'
 
+//引入axios获取数据
+import axios from 'axios'
+Vue.prototype.$axios=axios
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
