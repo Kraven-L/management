@@ -104,248 +104,6 @@
 export default {
   data() {
     return {
-      tableData: [
-        {
-          num: 1,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 2,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 3,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 4,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 5,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 6,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 7,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 8,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 9,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        },
-        {
-          num: 10,
-          companyName: "芜湖市建设投资有限公司",
-          percent: "50%",
-          subscribedCapital: "150,000.00",
-          subscribedDate: "2013-06-02",
-          actualCapitalContribution: "150,000.00",
-          actualDate: "2013-06-02",
-          type: "企业法人",
-          contributionType: "货币",
-          operation: 1
-        }
-        // {
-        //   num: 11,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 12,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 13,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 14,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 15,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 16,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 17,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 18,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 19,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // },
-        // {
-        //   num: 20,
-        //   companyName: "芜湖市建设投资有限公司",
-        //   percent: "50%",
-        //   subscribedCapital: "150,000.00",
-        //   subscribedDate: "2013-06-02",
-        //   actualCapitalContribution: "150,000.00",
-        //   actualDate: "2013-06-02",
-        //   type: "企业法人",
-        //   contributionType: "货币",
-        //   operation: 1
-        // }
-      ],
       tableDatas: []
     };
   },
@@ -358,7 +116,7 @@ export default {
       var url = "./../../static/data.json";
 
       this.$axios.get(url).then(res => {
-        console.log(res.data.tableData);
+        // console.log(res.data.tableData);
         this.tableDatas = res.data.tableData;
       });
     }
@@ -370,9 +128,6 @@ export default {
    text-align: center;
  } */
 
-* {
-  /* border-color: #ceeca6 !important; */
-}
 .el-row {
   float: right;
   margin: 20px 10px;
@@ -431,7 +186,7 @@ a {
   text-decoration: none;
   color: #51aff8;
 }
-span>a{
+span > a {
   color: #fff;
 }
 </style>
