@@ -1,6 +1,6 @@
 <template>
   <div class="addForm">
-    <div class="form_List">
+    <div class="form_List d_jump">
       <div class="title clearfix">
         <span></span>
         <h4>工商信息</h4>
@@ -77,33 +77,32 @@
           <el-input v-model="form.nameBefore" placeholder="请输入曾用名，并用“，”隔开"></el-input>
         </el-form-item>
         <el-form-item label="是否上市">
-          <el-radio-group v-model="form.resource">
-            <el-radio label="是"></el-radio>
-            <el-radio label="否"></el-radio>
+          <el-radio-group v-model="form.isStaff">
+            <el-radio label="上市">是</el-radio>
+            <el-radio label="没上市">否</el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item label="归口管理经营单元">
           <el-input v-model="form.managementUnit" placeholder="请输入归口管理经营单元"></el-input>
         </el-form-item>
         <el-form-item label="公司头像">
-          <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-            <img v-if="form.imageUrl" :src="form.imageUrl" class="avatar">
+          <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess1" :before-upload="beforeAvatarUpload1">
+            <img v-if="form.imageUrl1" :src="form.imageUrl1" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
           </el-upload>
         </el-form-item>
         <!-- <el-form-item label="">
-        <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview" :on-remove="handleRemove" :before-remove="beforeRemove" multiple :limit="3" :on-exceed="handleExceed" :file-list="fileList">
-          <el-button size="small" type="primary">点击上传</el-button>
-        </el-upload>
-      </el-form-item>
-      <el-form-item label="">
-        <el-button type="success" @click="onSubmit">确认</el-button>
-        <el-button type="info">取消</el-button>
-      </el-form-item> -->
+          <el-button type="success" @click="onSubmit">确认</el-button>
+          <el-button type="info">取消</el-button>
+        </el-form-item> -->
+        <el-form-item label="">
+          <el-button type="primary" @click="onSubmit">确认添加</el-button>
+          <el-button type="info">取消</el-button>
+        </el-form-item>
       </el-form>
     </div>
-    <div class="form_List second">
+    <div class="form_List second d_jump">
       <div class="title clearfix">
         <span></span>
         <h4>股东信息新增</h4>
@@ -111,7 +110,7 @@
       </div>
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="股东类型">
-          <el-radio-group v-model="form.resource">
+          <el-radio-group v-model="form.isStaff">
             <el-radio label="企业法人"></el-radio>
             <el-radio label="个人"></el-radio>
           </el-radio-group>
@@ -192,7 +191,7 @@
         </el-table>
       </div>
     </div>
-    <div class="form_List second">
+    <div class="form_List second d_jump">
       <div class="title clearfix">
         <span></span>
         <h4>董监高人员新增</h4>
@@ -215,7 +214,7 @@
         </el-form-item>
         <el-form-item label="职务">
           <el-col :span="16">
-            <el-checkbox-group v-model="form.checkList">
+            <el-checkbox-group v-model="form.checkList" :min="1">
               <el-checkbox label="董事长"></el-checkbox>
               <el-checkbox label="董事"></el-checkbox>
               <el-checkbox label="监事"></el-checkbox>
@@ -238,6 +237,24 @@
           <div class="addList clearfix">
             <el-col :span="3">
               <p>董事</p>
+            </el-col>
+            <el-col :span="21">
+              <el-date-picker v-model="form.value4" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+              </el-date-picker>
+            </el-col>
+          </div>
+          <div class="addList clearfix">
+            <el-col :span="3">
+              <p>监事</p>
+            </el-col>
+            <el-col :span="21">
+              <el-date-picker v-model="form.value4" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+              </el-date-picker>
+            </el-col>
+          </div>
+          <div class="addList clearfix">
+            <el-col :span="3">
+              <p>总经理</p>
             </el-col>
             <el-col :span="21">
               <el-date-picker v-model="form.value4" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
@@ -274,7 +291,7 @@
         </el-table>
       </div>
     </div>
-    <div class="form_List third">
+    <div class="form_List third d_jump">
       <div class="title clearfix">
         <span></span>
         <h4>分支机构公司信息新增</h4>
@@ -289,7 +306,7 @@
           </el-col>
         </el-form-item>
         <el-form-item label="分支机构类型">
-          <el-radio-group v-model="form.resource">
+          <el-radio-group v-model="form.isStaff">
             <el-radio label="子公司"></el-radio>
             <el-radio label="分公司"></el-radio>
           </el-radio-group>
@@ -328,15 +345,15 @@
         </el-table>
       </div>
     </div>
-    <div class="form_List third">
+    <div class="form_List third d_jump">
       <div class="title clearfix">
         <span></span>
         <h4>联系人新增</h4>
       </div>
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="头像">
-          <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-            <img v-if="form.imageUrl" :src="form.imageUrl" class="avatar">
+          <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess2" :before-upload="beforeAvatarUpload2">
+            <img v-if="form.imageUrl2" :src="form.imageUrl2" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             <div slot="tip" class="el-upload__tip">建议上传照片，方便在查人员时快速识别</div>
           </el-upload>
@@ -351,13 +368,13 @@
         </el-form-item>
         <el-form-item label="是否中联员工">
           <el-col :span="7">
-            <el-radio-group v-model="form.resource">
-              <el-radio label="是"></el-radio>
-              <el-radio label="否"></el-radio>
+            <el-radio-group v-model="form.isStaff" @change="isZoomlionStaff">
+              <el-radio label="yes">是</el-radio>
+              <el-radio label="no">否</el-radio>
             </el-radio-group>
           </el-col>
           <el-col :span="9">
-            <el-input v-model="form.corporation" placeholder="请输入中联重科8位数工号"></el-input>
+            <el-input v-model="form.corporation" placeholder="请输入中联重科8位数工号" v-show="form.isZoomlion"></el-input>
           </el-col>
           <el-col :span="8">
           </el-col>
@@ -442,28 +459,64 @@
         </el-table>
       </div>
     </div>
-    <div class="form_List third">
-      <div class="title">
+    <div class="form_List third d_jump">
+      <div class="title clearfix">
         <span></span>
         <h4>审批流程及其他文件</h4>
+        <el-button type="primary" @click="form.centerDialogVisible = true">增加</el-button>
+        <el-dialog :visible.sync="form.centerDialogVisible" width="40%" center>
+          <span slot="title" class="dialog-title">
+            <div class="title clearfix">
+              <span></span>
+              <h4>新增审批流程及其他文件</h4>
+            </div>
+          </span>
+          <span>
+            <div class="addForm_inner">
+              <el-form ref="form" :model="form" label-width="80px">
+                <el-form-item label="文件类型">
+                  <el-select v-model="form.value6" placeholder="请选择文件类型">
+                    <el-option v-for="item in form.options5" :key="item.value" :label="item.label" :value="item.value">
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="文件名称">
+                  <el-input v-model="form.fileName2"></el-input>
+                </el-form-item>
+                <el-form-item label="文件">
+                  <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview" :on-remove="handleRemove" :before-remove="beforeRemove" multiple :limit="3" :on-exceed="handleExceed" :file-list="form.fileList">
+                    <el-button size="small" type="primary">选取文件</el-button>
+                    <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
+                  </el-upload>
+                </el-form-item>
+                <el-form-item label="">
+                  <el-button type="success" @click="form.centerDialogVisible = false">确认</el-button>
+                  <el-button type="info" @click="form.centerDialogVisible = false">取消</el-button>
+
+                </el-form-item>
+
+              </el-form>
+            </div>
+          </span>
+        </el-dialog>
       </div>
       <div class="tablelist th_Padding">
         <el-table :data="tableData5" :border=true :fit=true element-loading-text="列表正在加载中">
           <el-table-column prop="num" label="序号" width="80" align="center"></el-table-column>
           <el-table-column label="文件类型" align="center" width="240">
-            <template scope="[]">
-              <el-select v-model="form.value1">
-                <el-option v-for="item in form.options1" :key="item.value" :label="item.label" :value="item.value">
+            <template slot-scope="scope">
+              <el-select v-model="form.value5">
+                <el-option v-for="item in form.options5" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
             </template>
           </el-table-column>
           <el-table-column label="文件名称" align="center">
-            <template scope="scope">
-              <el-input v-model="scope.row.fldNm"></el-input>
+            <template slot-scope="scope">
+              <el-input v-model="form.fileName1"></el-input>
             </template>
           </el-table-column>
-          <el-table-column prop="job" label="文件" align="center"></el-table-column>
+          <el-table-column prop="file" label="文件" align="center"></el-table-column>
           <el-table-column label="操作" align="center" width="80">
             <template slot-scope="scope">
               <a class="el-icon el-icon-upload2"></a>
@@ -472,26 +525,18 @@
           </el-table-column>
         </el-table>
       </div>
+      <div class="confirm">
+        <el-button type="success">完成</el-button>
+      </div>
     </div>
     <div class="fixed">
       <ul>
-        <li>
-          <a href="" class="active">1</a>
-        </li>
-        <li>
-          <a href="">2</a>
-        </li>
-        <li>
-          <a href="">3</a>
-        </li>
-        <li>
-          <a href="">4</a>
-        </li>
-        <li>
-          <a href="">5</a>
-        </li>
-        <li>
-          <a href="">6</a>
+        <li v-for="(item,index) in fixedList" :key="index" @click="jump(index)" :class="{active:index==current}">
+          <el-tooltip class="item" effect="dark" :content=item.title placement="left">
+            <span>
+              {{item.num}}
+            </span>
+          </el-tooltip>
         </li>
       </ul>
     </div>
@@ -563,13 +608,48 @@ export default {
             label: "重庆"
           }
         ],
+        options5: [
+          {
+            value: "选项1",
+            label: "营业证件"
+          },
+          {
+            value: "选项2",
+            label: "公司章程"
+          },
+          {
+            value: "选项3",
+            label: "其他"
+          }
+        ],
         value1: "人民币",
         value2: "北京",
         value3: "北京",
-        imageUrl: "",
         value4: "",
-        checkList: ["董事长", "董事"]
+        value5: "营业证件",
+        value6: "",
+        imageUrl1: "",
+        imageUrl2: "",
+        checkList: ["董事长", "董事"],
+        isStaff: "yes",
+        isZoomlion: true,
+        fileName1: "营业执照",
+        fileName2: "",
+        centerDialogVisible: false,
+        fileList: [
+          {
+            name: "food.jpeg",
+            url:
+              "https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"
+          },
+          {
+            name: "food2.jpeg",
+            url:
+              "https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"
+          }
+        ]
       },
+      formLabelWidth: "120px",
       tableData1: [
         {
           num: 1,
@@ -626,31 +706,94 @@ export default {
           num: 1,
           name: "詹纯新",
           IDcard: "123456198807181523",
-          job: "董事长",
-          mobile: "18178787878",
-          phone: "073188989898",
-          wechat: "18178787878",
-          address: "长沙市岳麓区中联重科麓谷工业园"
+          file: "营业执照.jpg"
         }
       ],
-      fileList: [
+      // fixedList: [1, 2, 3, 4, 5, 6],
+      fixedList: [
         {
-          name: "food.jpeg",
-          url:
-            "https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"
+          num: 1,
+          title: "工商信息"
         },
         {
-          name: "food2.jpeg",
-          url:
-            "https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"
+          num: 2,
+          title: "股东信息新增"
+        },
+        {
+          num: 3,
+          title: "董监高人员新增"
+        },
+        {
+          num: 4,
+          title: "分支机构公司信息新增"
+        },
+        {
+          num: 5,
+          title: "联系人新增"
+        },
+        {
+          num: 6,
+          title: "审批流程及其他文件"
         }
-      ]
+      ],
+      current: 0
     };
   },
   methods: {
     onSubmit() {
       console.log("submit!");
     },
+    handleAvatarSuccess1(res, file) {
+      this.form.imageUrl1 = URL.createObjectURL(file.raw);
+    },
+    handleAvatarSuccess2(res, file) {
+      this.form.imageUrl2 = URL.createObjectURL(file.raw);
+    },
+    beforeAvatarUpload1(file) {
+      const isPic = file.type === "image/jpeg" || file.type === "image/png";
+      console.log("beforeAvatarUpload1 " + isPic);
+      const isLt2M = file.size / 1024 / 1024 < 2;
+
+      if (!isPic) {
+        this.$message.error("上传头像图片只能是 JPG/PNG 格式!");
+      }
+      if (!isLt2M) {
+        this.$message.error("上传头像图片大小不能超过 2MB!");
+      }
+      return isPic && isLt2M;
+    },
+    beforeAvatarUpload2(file) {
+      const isPic = file.type === "image/jpeg" || file.type === "image/png";
+      console.log("beforeAvatarUpload2 " + isPic);
+      const isLt2M = file.size / 1024 / 1024 < 2;
+
+      if (!isPic) {
+        this.$message.error("上传头像图片只能是 JPG/PNG 格式!");
+      }
+      if (!isLt2M) {
+        this.$message.error("上传头像图片大小不能超过 2MB!");
+      }
+      return isPic && isLt2M;
+    },
+    jump(index) {
+      let jump = document.querySelectorAll(".d_jump");
+      // 获取需要滚动的距离
+      let total = jump[index].offsetTop;
+      window.scrollTo(0, total);
+      //当前点击标签添加样式
+      this.current = index;
+      // // Chrome
+      // document.body.scrollTop = total;
+      // // Firefox
+      // document.documentElement.scrollTop = total;
+      // // Safari
+      // window.pageYOffset = total;
+    },
+    isZoomlionStaff() {
+      this.form.isZoomlion = !this.form.isZoomlion;
+    },
+
+    //弹框
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },
@@ -666,21 +809,6 @@ export default {
     },
     beforeRemove(file, fileList) {
       return this.$confirm(`确定移除 ${file.name}？`);
-    },
-    handleAvatarSuccess(res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw);
-    },
-    beforeAvatarUpload(file) {
-      const isJPG = file.type === "image/jpeg";
-      const isLt2M = file.size / 1024 / 1024 < 2;
-
-      if (!isJPG) {
-        this.$message.error("上传头像图片只能是 JPG 格式!");
-      }
-      if (!isLt2M) {
-        this.$message.error("上传头像图片大小不能超过 2MB!");
-      }
-      return isJPG && isLt2M;
     }
   }
 };
@@ -694,7 +822,7 @@ export default {
     padding: 0 20px 20px;
     border-bottom: 1px solid #ddd;
     .title {
-      span {
+      > span {
         display: block;
         position: relative;
         top: 22px;
@@ -709,7 +837,7 @@ export default {
         margin-left: 10px;
         font-weight: normal;
       }
-      a {
+      > a {
         float: left;
         text-decoration: none;
         font-size: 14px;
@@ -718,8 +846,63 @@ export default {
         margin-left: 20px;
         font-weight: bold;
       }
+      > button {
+        float: right;
+        margin-top: 10px;
+        padding: 12px 25px;
+      }
+      .el-dialog__header {
+        border-bottom: 1px solid #ddd;
+        padding: 0;
+      }
+      .el-dialog--center .el-dialog__body {
+        padding: 20px 10px;
+      }
+      .title {
+        padding-left: 20px;
+        span {
+          display: block;
+          position: relative;
+          top: 17px;
+          float: left;
+          width: 2px;
+          height: 16px;
+          background-color: #51aff8;
+        }
+        h4 {
+          line-height: 50px;
+          margin-left: 10px;
+          font-weight: normal;
+        }
+      }
+      .addForm_inner {
+        width: 100%;
+        padding: 0 20px;
+        color: #000;
+        box-sizing: border-box;
+
+        .el-form {
+          .el-form-item {
+            margin-bottom: 10px;
+            .el-form-item__label {
+              width: 80px !important;
+              text-align: left;
+            }
+            .el-form-item__content {
+              margin-left: 80px !important;
+              > button {
+                padding: 12px 35px;
+                font-size: 16px;
+              }
+              .el-select {
+                display: block;
+              }
+            }
+          }
+        }
+      }
     }
-    .el-form {
+    > .el-form {
       .el-form-item {
         margin-bottom: 10px;
         width: 65%;
@@ -746,7 +929,11 @@ export default {
             }
           }
           > button {
-            padding: 12px 35px;
+            width: 100px;
+            height: 35px;
+            padding: 0;
+            font-size: 14px;
+            line-height: 35px;
           }
           .el-select {
             display: block;
@@ -763,47 +950,32 @@ export default {
     &.second {
       .el-form-item {
         width: 65%;
-        // &:nth-child(4),
-        // &:nth-child(5) {
-        //   width: 60%;
-        // }
         .el-form-item__label {
           width: 90px !important;
           text-align: left;
         }
         .el-form-item__content {
           margin-left: 90px !important;
-          > button {
-            width: 100px;
-            height: 35px;
-            padding: 0;
-            font-size: 16px;
-            line-height: 35px;
-          }
         }
       }
     }
     &.third {
       .el-form-item {
-        width: 65%;
-        // &:nth-child(4),
-        // &:nth-child(5) {
-        //   width: 60%;
-        // }
+        // width: 65%;
         .el-form-item__label {
           width: 100px !important;
           text-align: left;
         }
         .el-form-item__content {
           margin-left: 100px !important;
-          > button {
-            width: 100px;
-            height: 35px;
-            padding: 0;
-            font-size: 16px;
-            line-height: 35px;
-          }
         }
+      }
+    }
+    .confirm {
+      text-align: center;
+      padding-top: 20px;
+      button {
+        padding: 12px 30px;
       }
     }
   }
@@ -814,22 +986,30 @@ export default {
     z-index: 999;
     ul {
       text-align: center;
-      &::after {
-        display: inline-block;
-        border-right: 1px solid #ddd;
-      }
       li {
         margin-bottom: 20px;
-        a {
-          line-height: 24px;
-          display: inline-block;
-          width: 24px;
-          height: 24px;
-          background: #999;
-          border-radius: 50%;
-          color: #fff;
-          &.active {
-            background: #ff8a00;
+        cursor: pointer;
+        line-height: 24px;
+        width: 24px;
+        height: 24px;
+        background: #999;
+        border-radius: 50%;
+        color: #fff;
+        position: relative;
+        &.active {
+          background: #ff8a00;
+        }
+        &::after {
+          content: "";
+          height: 20px;
+          border-right: 1px solid #ddd;
+          position: absolute;
+          top: 24px;
+          left: 11px;
+        }
+        &:nth-last-child(1) {
+          &::after {
+            border: none;
           }
         }
       }
